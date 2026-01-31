@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Library Management System</title>
+
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Playfair+Display:wght@600&display=swap" rel="stylesheet">
+
+<!-- Icons -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<!-- AOS Animations -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
+
+<style>
+:root{
+    --primary:#2c5364;
+    --secondary:#203a43;
+    --accent:#f4b41a;
+    --light:#f5f7fb;
+    --dark:#0f2027;
+}
+
+*{scroll-behavior:smooth;}
+
+body{
+    margin:0;
+    font-family:Poppins,sans-serif;
+    background:var(--light);
+    color:#333;
+}
+
+/* HERO */
+header{
+    height:90vh;
+    background:
+    linear-gradient(rgba(15,32,39,.75),rgba(32,58,67,.75)),
+    url("https://images.unsplash.com/photo-1507842217343-583bb7270b66") center/cover;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    color:white;
+}
+
+header h1{
+    font-family:"Playfair Display",serif;
+    font-size:52px;
+    margin-bottom:15px;
+}
+
+header p{
+    font-size:18px;
+    max-width:600px;
+    margin:auto;
+}
+
+/* NAVBAR */
+nav{
+    background:white;
+    text-align:center;
+    position:sticky;
+    top:0;
+    z-index:10;
+    box-shadow:0 6px 20px rgba(0,0,0,.1);
+}
+
+nav a{
+    display:inline-block;
+    padding:16px 24px;
+    text-decoration:none;
+    color:var(--primary);
+    font-weight:600;
+    position:relative;
+}
+
+nav a::after{
+    content:"";
+    position:absolute;
+    width:0;
+    height:3px;
+    left:50%;
+    bottom:6px;
+    background:var(--accent);
+    transition:.4s;
+}
+
+nav a:hover::after{
+    width:60%;
+    left:20%;
+}
+
+/* SECTIONS */
+section{
+    padding:80px 20px;
+}
+
+.card{
+    max-width:1100px;
+    margin:auto;
+    background:white;
+    padding:45px;
+    border-radius:22px;
+    box-shadow:0 25px 60px rgba(0,0,0,.12);
+    transition:.4s;
+}
+
+.card:hover{
+    transform:translateY(-6px);
+}
+
+h2{
+    text-align:center;
+    font-family:"Playfair Display",serif;
+    font-size:36px;
+    color:var(--secondary);
+}
+
+/* IMAGE */
+.section-img{
+    width:100%;
+    border-radius:18px;
+    margin:25px 0;
+}
+
+/* QUOTE */
+.quote{
+    background:linear-gradient(135deg,var(--primary),var(--secondary));
+    color:white;
+    padding:30px;
+    border-radius:16px;
+    font-style:italic;
+    text-align:center;
+    margin-top:30px;
+}
+
+/* TABLE */
+table{
+    width:100%;
+    border-collapse:collapse;
+    margin-top:25px;
+}
+
+th{
+    background:var(--primary);
+    color:white;
+    padding:14px;
+}
+
+td{
+    padding:12px;
+    text-align:center;
+    border-bottom:1px solid #ddd;
+}
+
+/* FORMS */
+input,textarea{
+    width:100%;
+    padding:14px;
+    margin-top:12px;
+    border-radius:10px;
+    border:1px solid #ccc;
+    font-size:14px;
+}
+
+button{
+    margin-top:25px;
+    padding:14px 38px;
+    background:linear-gradient(135deg,var(--accent),#ffcc33);
+    border:none;
+    border-radius:30px;
+    font-weight:600;
+    cursor:pointer;
+    transition:.4s;
+}
+
+button:hover{
+    transform:scale(1.08);
+}
+
+/* FOOTER */
+footer{
+    background:var(--dark);
+    color:white;
+    text-align:center;
+    padding:20px;
+    font-size:14px;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <div data-aos="zoom-in">
+        <h1><i class="fa fa-book"></i> Library Management System</h1>
+        <p>
+            A modern digital platform designed to manage books, students,
+            and library records efficiently and beautifully.
+        </p>
+    </div>
+</header>
+
+<nav>
+    <a href="#about">About</a>
+    <a href="#student">Student</a>
+    <a href="#admin">Admin</a>
+    <a href="#contact">Contact</a>
+</nav>
+
+<section id="about">
+    <div class="card" data-aos="fade-up">
+        <h2>About Our Library</h2>
+        <img src="https://images.unsplash.com/photo-1521587760476-6c12a4b040da" class="section-img">
+
+        <p>
+            The Library Management System provides a structured and automated way
+            to manage library resources. It improves efficiency, minimizes manual
+            work, and ensures easy access to knowledge.
+        </p>
+
+        <div class="quote">
+            “A room without books is like a body without a soul.” — Cicero
+        </div>
+
+        <p style="text-align:center;margin-top:15px;">
+            <b>Library Timing:</b> 9:00 AM – 5:00 PM
+        </p>
+    </div>
+</section>
+
+<section id="student">
+    <div class="card" data-aos="fade-right">
+        <h2>Student Section – Issue Book</h2>
+        <img src="https://images.unsplash.com/photo-1519682337058-a94d519337bc" class="section-img">
+
+        <input type="text" placeholder="Student Name">
+        <input type="text" placeholder="Roll Number">
+        <input type="text" placeholder="Book Name">
+        <input type="date">
+        <button onclick="issueBook()">Issue Book</button>
+    </div>
+</section>
+
+<section id="contact">
+    <div class="card" data-aos="fade-up">
+        <h2>Contact Us</h2>
+        <input type="text" placeholder="Name">
+        <input type="email" placeholder="Email">
+        <textarea placeholder="Message"></textarea>
+        <button>Send Message</button>
+    </div>
+</section>
+
+<footer>
+    © 2026 Library Management System | Academic Project
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+<script>
+AOS.init({duration:1200});
+
+function issueBook(){
+    alert("📘 Book issued successfully!");
+}
+</script>
+
+</body>
+</html>
